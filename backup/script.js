@@ -3,18 +3,8 @@ window.addEventListener("scroll",()=>header.classList.toggle("scrolled",window.s
 
 const menu=document.querySelector(".menu-toggle");
 const nav=document.querySelector(".site-header nav");
-menu.addEventListener("click",()=>{
-  const isOpen=nav.classList.toggle("open");
-  document.body.classList.toggle("menu-open",isOpen);
-  menu.setAttribute("aria-expanded",String(isOpen));
-  menu.textContent=isOpen?"×":"☰";
-});
-nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
-  nav.classList.remove("open");
-  document.body.classList.remove("menu-open");
-  menu.setAttribute("aria-expanded","false");
-  menu.textContent="☰";
-}));
+menu.addEventListener("click",()=>nav.classList.toggle("open"));
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
 
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
@@ -26,7 +16,7 @@ const observer=new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
-const weddingDate=new Date("2027-08-23T16:00:00+02:00");
+const weddingDate=new Date("2026-08-08T16:00:00+02:00");
 function updateCountdown(){
   const diff=Math.max(0,weddingDate-new Date());
   const values={

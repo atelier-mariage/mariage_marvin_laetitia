@@ -1,823 +1,222 @@
-:root {
-    --blue: #08275c;
-    --blue2: #123a7a;
-    --gold: #d8a649;
-    --pink: #ee7ca3;
-    --cream: #fff7f4;
-    --green: #176b54;
-    --text: #17213b
-}
-
-* {
-    box-sizing: border-box
-}
-
-html {
-    scroll-behavior: smooth
-}
-
-body {
-    margin: 0;
-    background: var(--cream);
-    color: var(--text);
-    font-family: Montserrat, sans-serif;
-    overflow-x: hidden
-}
-
-a {
-    color: inherit
-}
-
-.site-header {
-    position: fixed;
-    z-index: 50;
-    inset: 0 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5vw;
-    color: #fff;
-    transition: .3s
-}
-
-.site-header.scrolled {
-    background: rgba(255, 247, 244, .95);
-    color: var(--blue);
-    box-shadow: 0 8px 30px rgba(8, 39, 92, .12);
-    backdrop-filter: blur(12px);
-    padding-block: 13px
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    font: 700 1.3rem "Cormorant Garamond", serif
-}
-
-.brand span {
-    display: grid;
-    place-items: center;
-    width: 36px;
-    height: 36px;
-    border: 1px solid var(--pink);
-    border-radius: 50%;
-    color: var(--pink);
-    font-family: "Noto Serif JP", serif
-}
-
-.site-header nav {
-    display: flex;
-    gap: 28px
-}
-
-.site-header nav a {
-    text-decoration: none;
-    font-size: .7rem;
-    font-weight: 700;
-    letter-spacing: .1em;
-    text-transform: uppercase
-}
-
-.menu-toggle {
-    display: none;
-    border: 0;
-    background: none;
-    color: inherit;
-    font-size: 1.5rem
-}
-
-.music-button {
-    position: fixed;
-    z-index: 60;
-    right: 18px;
-    bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 0;
-    border-radius: 999px;
-    padding: 10px 15px;
-    background: rgba(8, 39, 92, .9);
-    color: #fff;
-    box-shadow: 0 10px 28px rgba(8, 39, 92, .25);
-    cursor: pointer
-}
-
-.music-button span {
-    color: var(--gold);
-    font-size: 1.2rem
-}
-
-.music-button.playing {
-    background: var(--pink)
-}
-
-.hero {
-    position: relative;
-    min-height: 100svh;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    color: #fff;
-    text-align: center;
-    background: url("assets/hero-martinique.jpg") center/cover no-repeat
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(8, 39, 92, .2), rgba(8, 39, 92, .18) 55%, rgba(8, 39, 92, .62))
-}
-
-.hero-content {
-    position: relative;
-    z-index: 3;
-    max-width: 850px;
-    padding: 120px 24px 180px
-}
-
-.japanese {
-    font-family: "Noto Serif JP", serif;
-    color: var(--pink);
-    letter-spacing: .38em;
-    margin: 0 0 10px
-}
-
-.eyebrow {
-    margin: 0 0 13px;
-    color: var(--gold);
-    font-size: .7rem;
-    font-weight: 700;
-    letter-spacing: .24em;
-    text-transform: uppercase
-}
-
-.hero h1 {
-    font: 600 clamp(4.4rem, 12vw, 9rem)/.86 "Cormorant Garamond", serif;
-    margin: 16px 0 20px;
-    text-shadow: 0 14px 36px rgba(0, 0, 0, .22)
-}
-
-.hero h1 span {
-    color: var(--gold)
-}
-
-.subtitle {
-    font-size: .78rem;
-    font-weight: 700;
-    letter-spacing: .22em;
-    text-transform: uppercase
-}
-
-.date-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin: 30px 0
-}
-
-.date-row i {
-    width: 70px;
-    height: 1px;
-    background: var(--gold)
-}
-
-.date-row strong {
-    font: 600 1.65rem "Cormorant Garamond", serif
-}
-
-.tagline {
-    font: italic 1.55rem "Cormorant Garamond", serif;
-    color: #ffe8c2
-}
-
-.hero-actions {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 28px
-}
-
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50px;
-    padding: 0 23px;
-    border-radius: 999px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: .68rem;
-    font-weight: 800;
-    letter-spacing: .09em
-}
-
-.primary {
-    background: linear-gradient(90deg, #ef75a1, #dc4d83);
-    color: #fff
-}
-
-.glass {
-    border: 1px solid rgba(255, 255, 255, .7);
-    background: rgba(255, 255, 255, .08);
-    color: #fff;
-    backdrop-filter: blur(8px)
-}
-
-.countdown {
-    position: absolute;
-    z-index: 4;
-    bottom: 38px;
-    display: flex;
-    gap: clamp(20px, 6vw, 65px)
-}
-
-.countdown div {
-    display: grid
-}
-
-.countdown strong {
-    font: 600 1.7rem "Cormorant Garamond", serif
-}
-
-.countdown span {
-    font-size: .55rem;
-    text-transform: uppercase;
-    letter-spacing: .13em;
-    color: #f4dce5
-}
-
-.section {
-    padding: clamp(80px, 10vw, 140px) clamp(22px, 7vw, 105px)
-}
-
-.section h2,
-.island-strip h2 {
-    font: 600 clamp(3rem, 7vw, 5.8rem)/.94 "Cormorant Garamond", serif;
-    margin: 0;
-    color: var(--blue)
-}
-
-.section-heading {
-    text-align: center;
-    max-width: 850px;
-    margin: 0 auto 55px
-}
-
-.story {
-    background: linear-gradient(180deg, #fff8f5, #fdf0f3)
-}
-
-.story-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(50px, 9vw, 120px);
-    align-items: center;
-    max-width: 1150px;
-    margin: auto
-}
-
-.story-art {
-    position: relative;
-    min-height: 500px
-}
-
-.brush-circle {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 400px;
-    height: 400px;
-    border-radius: 47% 53% 46% 54%;
-    border: 8px solid rgba(238, 124, 163, .35);
-    transform: translate(-50%, -50%) rotate(-8deg)
-}
-
-.story-photo {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 360px;
-    height: 360px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 7rem;
-    background: linear-gradient(145deg, #ffd8e4, #ee7ca3);
-    border: 8px solid #fff;
-    box-shadow: 0 25px 60px rgba(8, 39, 92, .17);
-    transform: translate(-50%, -50%)
-}
-
-.colibri {
-    position: absolute;
-    right: 5%;
-    bottom: 10%;
-    font-size: 4rem;
-    color: var(--green)
-}
-
-.story-copy .lead {
-    font: 1.7rem/1.35 "Cormorant Garamond", serif;
-    color: var(--blue)
-}
-
-.story-copy p {
-    line-height: 1.8;
-    color: #6d646a
-}
-
-.story-copy blockquote {
-    margin: 35px 0;
-    padding: 20px 0;
-    border-block: 1px solid #eed1da;
-    font: italic 1.35rem "Cormorant Garamond", serif;
-    color: #9b6c43
-}
-
-.signature {
-    font: 2rem "Cormorant Garamond", serif;
-    color: var(--blue) !important
-}
-
-.program {
-    background: var(--blue);
-    color: #fff
-}
-
-.program h2 {
-    color: #eabf65
-}
-
-.timeline {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 8px;
-    max-width: 1200px;
-    margin: auto
-}
-
-.timeline-item {
-    text-align: center;
-    padding: 0 10px
-}
-
-.icon {
-    width: 54px;
-    height: 54px;
-    margin: 0 auto 15px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    border: 2px solid var(--gold);
-    font-size: 1.35rem
-}
-
-.timeline time {
-    display: block;
-    font: 600 1.35rem "Cormorant Garamond", serif;
-    color: #f4c96e
-}
-
-.timeline h3 {
-    font: 600 1rem "Cormorant Garamond", serif;
-    margin: 10px 0 6px
-}
-
-.timeline p {
-    font-size: .68rem;
-    line-height: 1.55;
-    color: #dce6f5
-}
-
-.places {
-    background: #fff8f5
-}
-
-.places-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 350px);
-    justify-content: center;
-    gap: 30px;
-}
-
-.place-card {
-    overflow: hidden;
-    border-radius: 24px;
-    background: #fff;
-    box-shadow: 0 18px 45px rgba(8, 39, 92, .1)
-}
-
-.place-image {
-    height: 190px;
-    background: url("assets/hero-martinique.jpg") center/cover
-}
-
-.church {
-    background-position: 65% 70%
-}
-
-.garden {
-    background-position: 30% 80%
-}
-
-.place-content {
-    padding: 22px
-}
-
-.place-label {
-    color: var(--gold);
-    font-size: .6rem;
-    font-weight: 700;
-    letter-spacing: .12em;
-    text-transform: uppercase
-}
-
-.place-content h3 {
-    font: 600 1.5rem "Cormorant Garamond", serif;
-    color: var(--blue);
-    margin: 6px 0
-}
-
-.place-content p {
-    color: #6d646a
-}
-
-.place-content a {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 10px 14px;
-    border: 1px solid var(--gold);
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: .62rem;
-    font-weight: 700;
-    text-transform: uppercase
-}
-
-.map-card {
-    overflow: hidden;
-    border-radius: 24px;
-    min-height: 320px;
-    box-shadow: 0 18px 45px rgba(8, 39, 92, .1)
-}
-
-.map-card iframe {
-    width: 100%;
-    height: 100%;
-    min-height: 320px;
-    border: 0
-}
-
-.island-strip {
-    position: relative;
-    min-height: 520px;
-    display: grid;
-    place-items: center;
-    padding: 90px 24px;
-    text-align: center;
-    color: #fff;
-    background: linear-gradient(rgba(8, 39, 92, .82), rgba(23, 107, 84, .72)), url("assets/hero-martinique.jpg") center/cover
-}
-
-.island-strip h2 {
-    color: #fff
-}
-
-.island-content {
-    max-width: 900px
-}
-
-.island-icons {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    margin-top: 38px
-}
-
-.island-icons article {
-    display: grid;
-    gap: 8px;
-    padding: 22px 10px;
-    border: 1px solid rgba(255, 255, 255, .22);
-    border-radius: 18px;
-    background: rgba(255, 255, 255, .08);
-    backdrop-filter: blur(8px)
-}
-
-.island-icons span {
-    font-size: 2.2rem
-}
-
-.island-icons strong {
-    font: 600 1.1rem "Cormorant Garamond", serif
-}
-
-.contacts {
-    background: linear-gradient(180deg, #08275c, #061d47);
-    color: #fff
-}
-
-.contacts h2 {
-    color: #eabf65
-}
-
-.contact-grid {
-    max-width: 900px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px
-}
-
-.contact-card {
-    display: grid;
-    grid-template-columns: 125px 1fr;
-    gap: 20px;
-    align-items: center;
-    padding: 28px;
-    border: 1px solid rgba(216, 166, 73, .65);
-    border-radius: 25px;
-    background: rgba(255, 255, 255, .035)
-}
-
-.avatar {
-    width: 118px;
-    height: 118px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 3.4rem;
-    border: 4px solid rgba(255, 255, 255, .5)
-}
-
-.avatar.marie {
-    background: linear-gradient(145deg, #ffd6e2, #ee7ca3)
-}
-
-.avatar.jean {
-    background: linear-gradient(145deg, #58c2a6, #176b54)
-}
-
-.contact-card h3 {
-    margin: 0;
-    font: 600 2rem "Cormorant Garamond", serif;
-    color: #f4d5a0
-}
-
-.contact-card p {
-    font-size: .76rem;
-    color: #dbe5f4
-}
-
-.contact-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px
-}
-
-.contact-actions a {
-    flex: 1;
-    padding: 11px;
-    border-radius: 999px;
-    text-align: center;
-    text-decoration: none;
-    font-size: .68rem;
-    font-weight: 800;
-    text-transform: uppercase
-}
-
-.call {
-    background: linear-gradient(90deg, #ef75a1, #dc4d83)
-}
-
-.whatsapp {
-    background: #27b959
-}
-
-.confirmation {
-    max-width: 900px;
-    margin: 32px auto 0;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding: 20px 25px;
-    border-radius: 16px;
-    background: #fff1f5;
-    color: var(--blue)
-}
-
-.confirmation span {
-    font-size: 2.5rem
-}
-
-.confirmation p {
-    margin: 0;
-    line-height: 1.6;
-    font-size: .85rem
-}
-
-footer {
-    text-align: center;
-    padding: 55px 22px;
-    background: #041632;
-    color: #d8e2f2
-}
-
-.petal-layer {
-    position: fixed;
-    inset: 0;
-    z-index: 30;
-    overflow: hidden;
-    pointer-events: none
-}
-
-.petal {
-    position: absolute;
-    top: -10vh;
-    width: 17px;
-    height: 12px;
-    border-radius: 80% 20% 80% 20%;
-    background: linear-gradient(145deg, #ffd8e4, #f08eac);
-    animation: fall linear infinite;
-    opacity: .8
-}
-
-@keyframes fall {
-    0% {
-        transform: translate3d(0, -10vh, 0) rotate(0)
-    }
-
-    50% {
-        transform: translate3d(48px, 52vh, 0) rotate(180deg)
-    }
-
-    100% {
-        transform: translate3d(-35px, 112vh, 0) rotate(360deg)
-    }
-}
-
-.reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: .85s
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: none
-}
-
-@media(max-width:950px) {
-    .timeline {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 35px 10px
-    }
-
-    .places-grid {
-        grid-template-columns: 1fr 1fr
-    }
-
-    .map-card {
-        grid-column: 1/-1
-    }
-
-    .story-grid {
-        grid-template-columns: 1fr
-    }
-}
-
-@media(max-width:720px) {
-    .site-header nav {
-        display: none
-    }
-
-    .menu-toggle {
-        display: block
-    }
-
-    .site-header nav.open {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        padding: 25px;
-        background: var(--cream);
-        color: var(--blue)
-    }
-
-    .hero h1 {
-        font-size: 4.2rem
-    }
-
-    .hero-content {
-        padding-bottom: 200px
-    }
-
-    .countdown {
-        gap: 18px
-    }
-
-    .section {
-        padding: 78px 20px
-    }
-
-    .story-art {
-        min-height: 400px
-    }
-
-    .story-photo {
-        width: 300px;
-        height: 300px
-    }
-
-    .brush-circle {
-        width: 330px;
-        height: 330px
-    }
-
-    .timeline {
-        grid-template-columns: 1fr 1fr
-    }
-
-    .places-grid {
-        grid-template-columns: 1fr
-    }
-
-    .island-icons {
-        grid-template-columns: 1fr 1fr
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr
-    }
-
-    .contact-card {
-        grid-template-columns: 100px 1fr
-    }
-
-    .avatar {
-        width: 95px;
-        height: 95px
-    }
-
-    .confirmation {
-        align-items: flex-start
-    }
-
-    .music-button small {
-        display: none
-    }
-}
-
-@media(max-width:480px) {
-    .timeline {
-        grid-template-columns: 1fr
-    }
-
-    .island-icons {
-        grid-template-columns: 1fr
-    }
-
-    .contact-card {
-        grid-template-columns: 1fr;
-        text-align: center
-    }
-
-    .avatar {
-        margin: auto
-    }
-
-    .contact-actions {
-        flex-direction: column
-    }
-
-    .confirmation {
-        display: block;
-        text-align: center
-    }
-
-    .date-row i {
-        width: 35px
-    }
-}
-
-@media(prefers-reduced-motion:reduce) {
-    .petal {
-        animation: none
-    }
-
-    .reveal {
-        transition: none
-    }
-
-    html {
-        scroll-behavior: auto
-    }
+:root{--blue:#08275c;--blue2:#123a7a;--gold:#d8a649;--pink:#ee7ca3;--cream:#fff7f4;--green:#176b54;--text:#17213b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--text);font-family:Montserrat,sans-serif;overflow-x:hidden}a{color:inherit}
+.site-header{position:fixed;z-index:50;inset:0 0 auto;display:flex;justify-content:space-between;align-items:center;padding:20px 5vw;color:#fff;transition:.3s}.site-header.scrolled{background:rgba(255,247,244,.95);color:var(--blue);box-shadow:0 8px 30px rgba(8,39,92,.12);backdrop-filter:blur(12px);padding-block:13px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 1.3rem "Cormorant Garamond",serif}.brand span{display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--pink);border-radius:50%;color:var(--pink);font-family:"Noto Serif JP",serif}.site-header nav{display:flex;gap:28px}.site-header nav a{text-decoration:none;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.menu-toggle{display:none;border:0;background:none;color:inherit;font-size:1.5rem}
+.music-button{position:fixed;z-index:60;right:18px;bottom:18px;display:flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:10px 15px;background:rgba(8,39,92,.9);color:#fff;box-shadow:0 10px 28px rgba(8,39,92,.25);cursor:pointer}.music-button span{color:var(--gold);font-size:1.2rem}.music-button.playing{background:var(--pink)}
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;color:#fff;text-align:center;background:url("assets/hero-martinique.jpg") center/cover no-repeat}.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,39,92,.2),rgba(8,39,92,.18) 55%,rgba(8,39,92,.62))}.hero-content{position:relative;z-index:3;max-width:850px;padding:120px 24px 180px}.japanese{font-family:"Noto Serif JP",serif;color:var(--pink);letter-spacing:.38em;margin:0 0 10px}.eyebrow{margin:0 0 13px;color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase}.hero h1{font:600 clamp(4.4rem,12vw,9rem)/.86 "Cormorant Garamond",serif;margin:16px 0 20px;text-shadow:0 14px 36px rgba(0,0,0,.22)}.hero h1 span{color:var(--gold)}.subtitle{font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}.date-row{display:flex;align-items:center;justify-content:center;gap:20px;margin:30px 0}.date-row i{width:70px;height:1px;background:var(--gold)}.date-row strong{font:600 1.65rem "Cormorant Garamond",serif}.tagline{font:italic 1.55rem "Cormorant Garamond",serif;color:#ffe8c2}.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 23px;border-radius:999px;text-decoration:none;text-transform:uppercase;font-size:.68rem;font-weight:800;letter-spacing:.09em}.primary{background:linear-gradient(90deg,#ef75a1,#dc4d83);color:#fff}.glass{border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.08);color:#fff;backdrop-filter:blur(8px)}.countdown{position:absolute;z-index:4;bottom:38px;display:flex;gap:clamp(20px,6vw,65px)}.countdown div{display:grid}.countdown strong{font:600 1.7rem "Cormorant Garamond",serif}.countdown span{font-size:.55rem;text-transform:uppercase;letter-spacing:.13em;color:#f4dce5}
+.section{padding:clamp(80px,10vw,140px) clamp(22px,7vw,105px)}.section h2,.island-strip h2{font:600 clamp(3rem,7vw,5.8rem)/.94 "Cormorant Garamond",serif;margin:0;color:var(--blue)}.section-heading{text-align:center;max-width:850px;margin:0 auto 55px}
+.story{background:linear-gradient(180deg,#fff8f5,#fdf0f3)}.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(50px,9vw,120px);align-items:center;max-width:1150px;margin:auto}.story-art{position:relative;min-height:500px}.brush-circle{position:absolute;left:50%;top:50%;width:400px;height:400px;border-radius:47% 53% 46% 54%;border:8px solid rgba(238,124,163,.35);transform:translate(-50%,-50%) rotate(-8deg)}.story-photo{position:absolute;left:50%;top:50%;width:360px;height:360px;border-radius:50%;display:grid;place-items:center;font-size:7rem;background:linear-gradient(145deg,#ffd8e4,#ee7ca3);border:8px solid #fff;box-shadow:0 25px 60px rgba(8,39,92,.17);transform:translate(-50%,-50%)}.colibri{position:absolute;right:5%;bottom:10%;font-size:4rem;color:var(--green)}.story-copy .lead{font:1.7rem/1.35 "Cormorant Garamond",serif;color:var(--blue)}.story-copy p{line-height:1.8;color:#6d646a}.story-copy blockquote{margin:35px 0;padding:20px 0;border-block:1px solid #eed1da;font:italic 1.35rem "Cormorant Garamond",serif;color:#9b6c43}.signature{font:2rem "Cormorant Garamond",serif;color:var(--blue)!important}
+.program{background:var(--blue);color:#fff}.program h2{color:#eabf65}.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-width:1200px;margin:auto}.timeline-item{text-align:center;padding:0 10px}.icon{width:54px;height:54px;margin:0 auto 15px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--gold);font-size:1.35rem}.timeline time{display:block;font:600 1.35rem "Cormorant Garamond",serif;color:#f4c96e}.timeline h3{font:600 1rem "Cormorant Garamond",serif;margin:10px 0 6px}.timeline p{font-size:.68rem;line-height:1.55;color:#dce6f5}
+.places{background:#fff8f5}.places-grid{display:grid;grid-template-columns:.75fr .75fr 1.5fr;gap:22px;max-width:1200px;margin:auto}.place-card{overflow:hidden;border-radius:24px;background:#fff;box-shadow:0 18px 45px rgba(8,39,92,.1)}.place-image{height:190px;background:url("assets/hero-martinique.jpg") center/cover}.church{background-position:65% 70%}.garden{background-position:30% 80%}.place-content{padding:22px}.place-label{color:var(--gold);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.place-content h3{font:600 1.5rem "Cormorant Garamond",serif;color:var(--blue);margin:6px 0}.place-content p{color:#6d646a}.place-content a{display:inline-block;margin-top:8px;padding:10px 14px;border:1px solid var(--gold);border-radius:8px;text-decoration:none;font-size:.62rem;font-weight:700;text-transform:uppercase}.map-card{overflow:hidden;border-radius:24px;min-height:320px;box-shadow:0 18px 45px rgba(8,39,92,.1)}.map-card iframe{width:100%;height:100%;min-height:320px;border:0}
+.island-strip{position:relative;min-height:520px;display:grid;place-items:center;padding:90px 24px;text-align:center;color:#fff;background:linear-gradient(rgba(8,39,92,.82),rgba(23,107,84,.72)),url("assets/hero-martinique.jpg") center/cover}.island-strip h2{color:#fff}.island-content{max-width:900px}.island-icons{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:38px}.island-icons article{display:grid;gap:8px;padding:22px 10px;border:1px solid rgba(255,255,255,.22);border-radius:18px;background:rgba(255,255,255,.08);backdrop-filter:blur(8px)}.island-icons span{font-size:2.2rem}.island-icons strong{font:600 1.1rem "Cormorant Garamond",serif}
+.contacts{background:linear-gradient(180deg,#08275c,#061d47);color:#fff}.contacts h2{color:#eabf65}.contact-grid{max-width:900px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:25px}.contact-card{display:grid;grid-template-columns:125px 1fr;gap:20px;align-items:center;padding:28px;border:1px solid rgba(216,166,73,.65);border-radius:25px;background:rgba(255,255,255,.035)}.avatar{width:118px;height:118px;border-radius:50%;display:grid;place-items:center;font-size:3.4rem;border:4px solid rgba(255,255,255,.5)}.avatar.marie{background:linear-gradient(145deg,#ffd6e2,#ee7ca3)}.avatar.jean{background:linear-gradient(145deg,#58c2a6,#176b54)}.contact-card h3{margin:0;font:600 2rem "Cormorant Garamond",serif;color:#f4d5a0}.contact-card p{font-size:.76rem;color:#dbe5f4}.contact-actions{display:flex;gap:10px;margin-top:15px}.contact-actions a{flex:1;padding:11px;border-radius:999px;text-align:center;text-decoration:none;font-size:.68rem;font-weight:800;text-transform:uppercase}.call{background:linear-gradient(90deg,#ef75a1,#dc4d83)}.whatsapp{background:#27b959}.confirmation{max-width:900px;margin:32px auto 0;display:flex;align-items:center;gap:18px;padding:20px 25px;border-radius:16px;background:#fff1f5;color:var(--blue)}.confirmation span{font-size:2.5rem}.confirmation p{margin:0;line-height:1.6;font-size:.85rem}
+footer{text-align:center;padding:55px 22px;background:#041632;color:#d8e2f2}.petal-layer{position:fixed;inset:0;z-index:30;overflow:hidden;pointer-events:none}.petal{position:absolute;top:-10vh;width:17px;height:12px;border-radius:80% 20% 80% 20%;background:linear-gradient(145deg,#ffd8e4,#f08eac);animation:fall linear infinite;opacity:.8}@keyframes fall{0%{transform:translate3d(0,-10vh,0) rotate(0)}50%{transform:translate3d(48px,52vh,0) rotate(180deg)}100%{transform:translate3d(-35px,112vh,0) rotate(360deg)}}.reveal{opacity:0;transform:translateY(28px);transition:.85s}.reveal.visible{opacity:1;transform:none}
+@media(max-width:950px){.timeline{grid-template-columns:repeat(3,1fr);gap:35px 10px}.places-grid{grid-template-columns:1fr 1fr}.map-card{grid-column:1/-1}.story-grid{grid-template-columns:1fr}}
+@media(max-width:720px){.site-header nav{display:none}.menu-toggle{display:block}.site-header nav.open{position:absolute;top:100%;left:0;right:0;display:flex;flex-direction:column;padding:25px;background:var(--cream);color:var(--blue)}.hero h1{font-size:4.2rem}.hero-content{padding-bottom:200px}.countdown{gap:18px}.section{padding:78px 20px}.story-art{min-height:400px}.story-photo{width:300px;height:300px}.brush-circle{width:330px;height:330px}.timeline{grid-template-columns:1fr 1fr}.places-grid{grid-template-columns:1fr}.island-icons{grid-template-columns:1fr 1fr}.contact-grid{grid-template-columns:1fr}.contact-card{grid-template-columns:100px 1fr}.avatar{width:95px;height:95px}.confirmation{align-items:flex-start}.music-button small{display:none}}
+@media(max-width:480px){.timeline{grid-template-columns:1fr}.island-icons{grid-template-columns:1fr}.contact-card{grid-template-columns:1fr;text-align:center}.avatar{margin:auto}.contact-actions{flex-direction:column}.confirmation{display:block;text-align:center}.date-row i{width:35px}}
+@media(prefers-reduced-motion:reduce){.petal{animation:none}.reveal{transition:none}html{scroll-behavior:auto}}
+
+/* ===== Version mobile fidèle au rendu desktop ===== */
+body.menu-open{overflow:hidden}
+
+@media (max-width: 820px) {
+  .site-header{padding:14px 16px}
+  .brand{font-size:1.05rem}
+  .brand span{width:32px;height:32px}
+
+  .menu-toggle{
+    display:block;
+    position:relative;
+    z-index:72;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:rgba(255,255,255,.14);
+    backdrop-filter:blur(8px);
+  }
+
+  .site-header nav{
+    position:fixed;
+    inset:0;
+    z-index:71;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:25px;
+    padding:90px 25px 40px;
+    background:rgba(8,39,92,.98);
+    color:#fff;
+    transform:translateX(100%);
+    transition:transform .35s ease;
+  }
+
+  .site-header nav.open{transform:translateX(0)}
+
+  .site-header nav a{
+    font:600 2rem "Cormorant Garamond",serif;
+    text-align:center;
+    text-transform:none;
+    letter-spacing:.02em;
+  }
+
+  .hero{
+    min-height:100svh;
+    background-position:48% center;
+  }
+
+  .hero-content{
+    width:100%;
+    padding:108px 18px 185px;
+  }
+
+  .hero h1{
+    font-size:clamp(3.8rem,17vw,5.3rem);
+    line-height:.88;
+    margin:12px 0 18px;
+  }
+
+  .japanese{font-size:.9rem;letter-spacing:.28em}
+
+  .subtitle{
+    max-width:320px;
+    margin-inline:auto;
+    font-size:.66rem;
+    line-height:1.6;
+    letter-spacing:.15em;
+  }
+
+  .date-row{gap:12px;margin:23px 0}
+  .date-row i{width:34px}
+  .date-row strong{font-size:1.35rem}
+  .tagline{font-size:1.2rem}
+
+  .hero-actions{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .hero-actions .button{width:min(100%,300px)}
+
+  .countdown{
+    left:50%;
+    bottom:26px;
+    width:calc(100% - 28px);
+    transform:translateX(-50%);
+    justify-content:space-around;
+    gap:4px;
+    padding:14px 8px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:20px;
+    background:rgba(8,39,92,.32);
+    backdrop-filter:blur(8px);
+  }
+
+  .countdown strong{font-size:1.25rem}
+  .countdown span{font-size:.48rem}
+
+  .section{padding:76px 18px}
+
+  .section h2,.island-strip h2{
+    font-size:clamp(2.7rem,13vw,4.2rem);
+  }
+
+  .section-heading{margin-bottom:38px}
+
+  .story-grid{grid-template-columns:1fr;gap:35px}
+  .story-art{min-height:340px}
+  .story-photo{width:260px;height:260px;font-size:5rem}
+  .brush-circle{width:290px;height:290px}
+  .colibri{right:2%;bottom:4%;font-size:3rem}
+  .story-copy{text-align:center}
+  .story-copy .lead{font-size:1.45rem}
+
+  .timeline{
+    display:grid;
+    grid-template-columns:1fr;
+    max-width:520px;
+  }
+
+  .timeline-item{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    grid-template-areas:
+      "icon time"
+      "icon title"
+      "icon text";
+    gap:3px 16px;
+    text-align:left;
+    padding:24px 0;
+    border-bottom:1px solid rgba(216,166,73,.25);
+  }
+
+  .timeline-item .icon{
+    grid-area:icon;
+    width:54px;
+    height:54px;
+    margin:0;
+  }
+
+  .timeline-item time{grid-area:time;font-size:1.4rem}
+  .timeline-item h3{grid-area:title;margin:2px 0 3px;font-size:1.25rem}
+  .timeline-item p{grid-area:text;margin:0;font-size:.75rem}
+
+  .places-grid{
+    grid-template-columns:1fr;
+    max-width:520px;
+  }
+
+  .place-card{
+    display:grid;
+    grid-template-columns:130px 1fr;
+    min-height:155px;
+  }
+
+  .place-image{height:100%;min-height:155px}
+  .place-content{padding:18px}
+  .map-card{grid-column:auto;min-height:290px}
+  .map-card iframe{min-height:290px}
+
+  .island-strip{min-height:auto;padding:78px 18px}
+  .island-icons{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .island-icons article{min-height:120px;padding:20px 8px}
+  .island-icons article:last-child{
+    grid-column:1/-1;
+    width:50%;
+    justify-self:center;
+  }
+
+  .contact-grid{grid-template-columns:1fr;max-width:520px}
+  .contact-card{grid-template-columns:96px 1fr;gap:16px;padding:22px}
+  .avatar{width:90px;height:90px;font-size:2.6rem}
+  .contact-actions{flex-direction:column}
+  .confirmation{align-items:flex-start;padding:18px}
+
+  .music-button{
+    right:12px;
+    bottom:12px;
+    width:48px;
+    height:48px;
+    padding:0;
+    justify-content:center;
+  }
+
+  .music-button small{display:none}
+}
+
+@media (max-width: 430px) {
+  .hero{background-position:46% center}
+  .hero h1{font-size:3.7rem}
+  .story-photo{width:230px;height:230px}
+  .brush-circle{width:255px;height:255px}
+
+  .place-card{grid-template-columns:1fr}
+  .place-image{height:180px}
+
+  .contact-card{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .avatar{margin-inline:auto}
+  .confirmation{display:block;text-align:center}
+  .island-icons article:last-child{width:100%}
 }
