@@ -26,7 +26,7 @@ const observer=new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
-const weddingDate=new Date("2027-08-23T16:00:00+02:00");
+const weddingDate=new Date("2026-08-08T16:00:00+02:00");
 function updateCountdown(){
   const diff=Math.max(0,weddingDate-new Date());
   const values={
