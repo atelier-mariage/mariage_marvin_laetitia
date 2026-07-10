@@ -1,26 +1,18 @@
-SITE DE MARIAGE — MARTINIQUE × JAPON INTERACTIF
+SITE DE MARIAGE — FICHIERS COMPLETS
 
-Cette version utilise seulement le paysage comme image.
-Tous les noms, textes, dates, boutons, contacts et horaires sont en HTML et restent modifiables.
-
-Fichiers :
+Le dossier contient :
 - index.html
 - styles.css
 - script.js
-- assets/hero-martinique.jpg
-- assets/maquette-reference.png
+- assets/images/hero-mobile.png
+- assets/images/hero-desktop.jpg
+- assets/audio/
 
-MUSIQUE
-Ajoutez votre fichier :
-assets/musique.mp3
+Les pétales sont générés dynamiquement par script.js.
+L'image mobile est utilisée automatiquement sur les écrans de 768 px ou moins.
 
-CONTACTS
-Modifiez les numéros et e-mails directement dans index.html.
+Pour ajouter la musique :
+placez un fichier nommé musique.mp3 dans assets/audio/.
 
-DATE
-Modifiez la date dans script.js :
-2027-08-23T16:00:00+02:00
-
-GITHUB PAGES
-Déposez tous les fichiers dans le dépôt, puis :
-Settings > Pages > Deploy from a branch > main > /(root)
+Pour publier :
+envoyez tout le contenu du dossier sur votre dépôt GitHub Pages.
