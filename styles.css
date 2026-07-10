@@ -220,3 +220,47 @@ body.menu-open{overflow:hidden}
   .confirmation{display:block;text-align:center}
   .island-icons article:last-child{width:100%}
 }
+
+
+/* ===== Correctif image principale sur mobile ===== */
+@media (max-width: 820px) {
+  .hero {
+    min-height: 100svh;
+    background-size: auto 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #08275c;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    min-height: 100svh;
+    background-size: auto 100%;
+    background-position: 50% top;
+  }
+}
+
+/* Mode très étroit : on privilégie l'image entière */
+@media (max-width: 390px) {
+  .hero {
+    background-size: contain;
+    background-position: center top;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      linear-gradient(180deg, rgba(8,39,92,.08), rgba(8,39,92,.5)),
+      #08275c;
+  }
+
+  .hero-content,
+  .countdown {
+    position: relative;
+    z-index: 2;
+  }
+}
