@@ -124,36 +124,68 @@ document.addEventListener("DOMContentLoaded", () => {
   const musicButton = document.getElementById("musicButton");
   const music = document.getElementById("music");
   const musicState = document.getElementById("musicState");
+  const welcomeOverlay = document.getElementById("welcomeOverlay");
+  const welcomeEnter = document.getElementById("welcomeEnter");
+
+  function updateMusicButton(isPlaying) {
+    if (!musicButton) return;
+    musicButton.classList.toggle("playing", isPlaying);
+    musicButton.setAttribute("aria-label", isPlaying ? "Mettre la musique en pause" : "Activer la musique");
+    if (musicState) musicState.textContent = isPlaying ? "Pause" : "Musique";
+  }
+
+  function fadeInMusic(targetVolume = 0.35, duration = 3000) {
+    if (!music) return;
+    const steps = 30;
+    let step = 0;
+    music.volume = 0;
+    const timer = window.setInterval(() => {
+      step += 1;
+      music.volume = Math.min(targetVolume, (targetVolume / steps) * step);
+      if (step >= steps) {
+        window.clearInterval(timer);
+        music.volume = targetVolume;
+      }
+    }, duration / steps);
+  }
+
+  async function enterSite() {
+    if (!music) return;
+    try {
+      await music.play();
+      fadeInMusic();
+      updateMusicButton(true);
+      if (welcomeOverlay) {
+        welcomeOverlay.classList.add("hidden");
+        document.body.classList.remove("welcome-open");
+        window.setTimeout(() => welcomeOverlay.remove(), 900);
+      }
+    } catch (error) {
+      console.error("Impossible de lire le fichier audio.", error);
+      if (musicState) musicState.textContent = "Audio indisponible";
+    }
+  }
+
+  if (welcomeOverlay) document.body.classList.add("welcome-open");
+  if (welcomeEnter) welcomeEnter.addEventListener("click", enterSite);
 
   if (musicButton && music) {
     music.volume = 0.35;
-
     musicButton.addEventListener("click", async () => {
       try {
         if (music.paused) {
           await music.play();
-          musicButton.classList.add("playing");
-          musicButton.setAttribute("aria-label", "Mettre la musique en pause");
-
-          if (musicState) {
-            musicState.textContent = "Pause";
-          }
+          fadeInMusic();
+          updateMusicButton(true);
         } else {
           music.pause();
-          musicButton.classList.remove("playing");
-          musicButton.setAttribute("aria-label", "Activer la musique");
-
-          if (musicState) {
-            musicState.textContent = "Musique";
-          }
+          updateMusicButton(false);
         }
       } catch (error) {
         console.error("Impossible de lire le fichier audio.", error);
-
-        if (musicState) {
-          musicState.textContent = "Ajoutez le MP3";
-        }
+        if (musicState) musicState.textContent = "Audio indisponible";
       }
     });
   }
+
 });

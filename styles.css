@@ -1484,3 +1484,31 @@ footer {
     transition: none;
   }
 }
+
+/* ÉCRAN D'ACCUEIL MUSICAL */
+.welcome-overlay{
+  position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:24px;
+  background:linear-gradient(rgba(8,39,92,.78),rgba(8,39,92,.9)),url("assets/images/hero-desktop.jpg") center/cover no-repeat;
+  opacity:1;visibility:visible;transition:opacity .8s ease,visibility .8s ease
+}
+.welcome-overlay.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.welcome-card{
+  width:min(560px,100%);padding:clamp(34px,6vw,58px);border:1px solid rgba(255,255,255,.28);
+  border-radius:30px;color:#fff;background:rgba(15,35,87,.54);box-shadow:0 25px 70px rgba(0,0,0,.28);
+  text-align:center;backdrop-filter:blur(16px)
+}
+.welcome-japanese{margin:0 0 12px;color:var(--pink);font-family:"Cormorant Garamond",serif;font-size:1.1rem;letter-spacing:.32em}
+.welcome-card h2{margin:0 0 18px;color:#f3ce7c;font-family:"Cormorant Garamond",serif;font-size:clamp(2.8rem,8vw,5rem);font-weight:600;line-height:.95}
+.welcome-card p{margin:0 auto 28px;max-width:420px;line-height:1.7}
+.welcome-enter{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border:0;
+  border-radius:999px;color:#fff;background:linear-gradient(90deg,#f26398,#df3f7d);
+  box-shadow:0 14px 30px rgba(223,63,125,.3);font:inherit;font-size:.76rem;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease
+}
+.welcome-enter:hover{transform:translateY(-2px);box-shadow:0 18px 34px rgba(223,63,125,.4)}
+body.welcome-open{overflow:hidden}
+@media(max-width:768px){
+  .welcome-overlay{background-image:linear-gradient(rgba(8,39,92,.78),rgba(8,39,92,.9)),url("assets/images/hero-mobile.png")}
+  .welcome-card{border-radius:24px}
+}
