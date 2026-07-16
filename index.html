@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -9,8 +10,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=2">
 </head>
 
 <body>
@@ -19,20 +22,16 @@
   <header class="site-header">
     <a class="brand" href="#accueil" aria-label="Revenir à l'accueil">
       <span class="brand-symbol">花</span>
-      <span class="brand-name">Laetitia & Marvin</span>
+      <span class="brand-name">Laëtitia & Marvin</span>
     </a>
 
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-label="Ouvrir le menu"
-      aria-expanded="false"
-      aria-controls="main-navigation"
-    >☰</button>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"
+      aria-controls="main-navigation">☰</button>
 
     <nav id="main-navigation" aria-label="Navigation principale">
       <a href="#accueil">Accueil</a>
-      <a href="#histoire">Notre histoire</a>
+      <a href="#rencontre">Notre rencontre</a>
+      <a href="#univers">Notre univers</a>
       <a href="#programme">Programme</a>
       <a href="#lieux">Lieux</a>
       <a href="#contacts">Contacts</a>
@@ -47,7 +46,7 @@
         <p class="wedding-label">Notre mariage</p>
 
         <h1>
-          <span>Laetitia <em>&</em></span>
+          <span>Laëtitia <em>&</em></span>
           <span>Marvin</span>
         </h1>
 
@@ -55,7 +54,7 @@
 
         <div class="date-line">
           <span></span>
-          <time datetime="2027-08-23">23 août 2027</time>
+          <time datetime="2027-08-23">08 août 2026</time>
           <span></span>
         </div>
 
@@ -87,62 +86,248 @@
       </div>
     </section>
 
-    <section class="content-section reveal" id="histoire">
-      <div class="section-inner">
-        <p class="section-label">Notre histoire</p>
-        <h2>Une rencontre, deux cultures</h2>
-        <p>
-          Personnalisez ici votre histoire, vos souvenirs et le chemin qui vous
-          conduit jusqu'à cette journée.
-        </p>
+    <section class="story-showcase story-meeting reveal" id="rencontre">
+      <div class="story-showcase-inner story-showcase-reverse">
+        <div class="story-visual" aria-label="Illustration de notre rencontre">
+          <span class="story-kanji" aria-hidden="true">愛</span>
+          <div class="story-photo-frame">
+            <img src="assets/images/love.jpeg" alt="Photo de Laëtitia et Marvin illustrant leur rencontre">
+          </div>
+          <span class="story-hibiscus" aria-hidden="true">🌸</span>
+          <span class="story-hummingbird" aria-hidden="true">𓅃</span>
+        </div>
+
+        <div class="story-copy">
+          <p class="story-overline">Notre histoire</p>
+          <p class="story-japanese-label" lang="ja">私たちの出会い</p>
+          <h2>Notre rencontre</h2>
+
+          <p class="story-intro">
+            Il y a des rencontres qui changent une vie, et la nôtre en fait partie.
+          </p>
+
+          <p>
+            Tout a commencé de la manière la plus inattendue. Un simple hasard,
+            quelques échanges, beaucoup de curiosité… et une évidence qui s’est
+            installée naturellement. Dès notre première rencontre, nous avons su
+            que quelque chose de particulier était en train de naître.
+          </p>
+
+          <p>
+            Depuis ce jour, nous avançons côte à côte, en partageant des rires,
+            des découvertes, de belles aventures et, surtout, l’envie de construire
+            un avenir ensemble.
+          </p>
+
+          <p>
+            Aujourd’hui, nous sommes heureux d’écrire un nouveau chapitre de notre
+            histoire et encore plus heureux de pouvoir le célébrer entourés de ceux
+            que nous aimons.
+          </p>
+
+          <blockquote>
+            Merci de faire partie de cette belle aventure. Nous avons hâte de
+            partager cette journée inoubliable avec vous !
+          </blockquote>
+          <p class="story-signature">Laëtitia &amp; Marvin</p>
+        </div>
       </div>
     </section>
 
-    <section class="content-section content-section-alt reveal" id="programme">
+     <section class="story-showcase story-universe reveal" id="univers">
+      <div class="story-showcase-inner">
+        <div class="story-visual" aria-label="Illustration de notre univers">
+          <span class="story-kanji" aria-hidden="true">縁</span>
+          <div class="story-photo-frame">
+            <img src="assets/images/deux.jpeg" alt="Photo de Laëtitia et Marvin illustrant leur univers">
+          </div>
+          <span class="story-hibiscus" aria-hidden="true">🌺</span>
+          <span class="story-hummingbird" aria-hidden="true">𓅃</span>
+        </div>
+
+        <div class="story-copy">
+          <p class="story-overline">Notre univers</p>
+          <p class="story-japanese-label" lang="ja">私たちの世界</p>
+          <h2>Bienvenue dans<br>notre univers</h2>
+
+          <p class="story-intro">
+            Notre histoire est un merveilleux mélange de nos racines antillaises
+            et de notre passion commune pour la culture japonaise.
+          </p>
+
+          <p>
+            Depuis toujours, nous sommes fascinés par le Japon : ses traditions,
+            son art de vivre, sa gastronomie, ses paysages et ses valeurs. Cette
+            passion fait aujourd’hui partie de notre histoire, et nous avons
+            souhaité qu’elle accompagne l’un des plus beaux jours de notre vie.
+          </p>
+
+          <p>
+            C’est ainsi qu’est né le thème de notre mariage :
+            <strong>« Les Antillais au Japon »</strong>.
+          </p>
+
+          <p>
+            À travers cette journée, nous souhaitons vous faire voyager avec nous,
+            à la rencontre de deux cultures qui nous tiennent profondément à cœur.
+            Entre les couleurs et la chaleur des Antilles, l’élégance et la poésie
+            du Japon, nous avons imaginé un univers qui nous ressemble.
+          </p>
+
+          <blockquote>« Les Antillais au Japon »</blockquote>
+          <p class="story-signature">Laëtitia &amp; Marvin</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="program section" id="programme">
+      <div class="section-heading reveal">
+        <p class="japanese">祝宴</p>
+        <p class="eyebrow">Programme</p>
+        <h2>Le grand jour</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="icon">👋 </div><time>16:00</time>
+          <h3>Accueil des invités</h3>
+          <p>Ouverture des portes, accueil et installation</p>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="icon">💍</div><time>17:00</time>
+          <h3>Cérémonie laïque</h3>
+          <p>Domaine Saint-Pierre</p>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="icon">🥂</div><time>19:00</time>
+          <h3>Cocktail</h3>
+          <p>Bienvenue et rafraîchissements</p>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="icon">🍽️</div><time>20:00</time>
+          <h3>Dîner</h3>
+          <p>Saveurs antillaises et japonaises</p>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="icon">🎂</div><time>22:00</time>
+          <h3>Gâteau des mariés</h3>
+          <p>Pièce montée et tradition</p>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="icon">🎵</div><time>22:30</time>
+          <h3>Soirée dansante</h3>
+          <p>Zouk, kompa et bonne humeur</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="places content-section" id="lieux">
       <div class="section-inner">
-        <p class="section-label">Le grand jour</p>
-        <h2>Programme</h2>
+        <div class="places-heading reveal">
+          <p class="japanese" lang="ja">場所</p>
+          <p class="eyebrow">Lieux</p>
+          <h2>Retrouvez-nous</h2>
+          <p class="places-intro">
+            Nous vous donnons rendez-vous au Domaine Saint-Pierre
+            pour célébrer ensemble cette journée inoubliable.
+          </p>
+        </div>
 
-        <div class="event-grid">
-          <article class="event-card">
-            <span>💍</span>
-            <h3>Cérémonie</h3>
-            <p>16 h 00 — Lieu à compléter</p>
-          </article>
+        <div class="places-grid">
+          <article class="place-card reveal">
+            <div class="place-image church">
+              <span class="place-date">08 août 2026</span>
+            </div>
 
-          <article class="event-card">
-            <span>🥂</span>
-            <h3>Cocktail</h3>
-            <p>18 h 00 — Retrouvons-nous autour d'un verre</p>
-          </article>
+            <div class="place-content">
+              <p class="place-label">Domaine</p>
+              <h3>Saint-Pierre</h3>
 
-          <article class="event-card">
-            <span>🎶</span>
-            <h3>Soirée</h3>
-            <p>20 h 00 — Dîner, musique et danse</p>
+              <p class="place-address">
+                <span aria-hidden="true">📍</span>
+                Frm de Saint-Pierre, 77890 Gironville
+              </p>
+
+              <p class="place-description">
+                Nous vous accueillons à partir de 16 h 00 pour célébrer
+                officiellement notre union entourés de nos proches.
+              </p>
+
+              <div class="place-meta">
+                <div>
+                  <span aria-hidden="true">🕓</span>
+                  <p>
+                    <small>Arrivée des invités</small>
+                    <strong>16 h 00</strong>
+                  </p>
+                </div>
+
+                <div>
+                  <span aria-hidden="true">🌴</span>
+                  <p>
+                    <small>Lieu</small>
+                    <strong>Domaine Saint-Pierre</strong>
+                  </p>
+                </div>
+              </div>
+
+              <a class="place-button"
+                href="https://www.google.com/maps/place/Domaine+Saint-Pierre/@48.163691,2.5184197,17z/data=!3m1!4b1!4m6!3m5!1s0x47e59b9597810401:0xaa6b845add81f543!8m2!3d48.163691!4d2.521!16s%2Fg%2F11fhlmw1mq?entry=ttu&g_ep=EgoyMDI2MDcxNC4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank" rel="noopener">
+                Voir l’itinéraire
+              </a>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="content-section reveal" id="lieux">
-      <div class="section-inner">
-        <p class="section-label">Lieux</p>
-        <h2>Retrouvez-nous</h2>
-        <p>
-          Ajoutez ici l'adresse de la cérémonie, du cocktail et les informations
-          pratiques pour vos invités.
-        </p>
+    <section class="contacts section" id="contacts">
+      <div class="section-heading reveal">
+        <p class="japanese">連絡先</p>
+        <p class="eyebrow">Contacts</p>
+        <h2>Nous joindre</h2>
       </div>
-    </section>
 
-    <section class="content-section contact-section reveal" id="contacts">
-      <div class="section-inner">
-        <p class="section-label">Contacts</p>
-        <h2>Une question ?</h2>
-        <a class="button button-primary" href="mailto:votre-adresse@exemple.fr">
-          Nous écrire
-        </a>
+      <div class="contact-grid">
+        <article class="contact-card reveal">
+          <div class="avatar">
+            <span class="petal-ring"></span>
+            <img src="assets/images/elle.jpeg" alt="Marie">
+            <span class="avatar-glow"></span>
+          </div>
+          <div>
+            <h3>Laëtitia</h3>
+            <p>Organisatrice</p>
+            <p>📞 07 61 38 87 87</p>
+            <div class="contact-actions">
+              <a class="call" href="tel:0612345678">Appeler</a>
+              <a class="whatsapp" href="https://wa.me/33612345678" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="contact-card reveal">
+          <div class="avatar">
+            <span class="petal-ring"></span>
+            <img src="assets/images/lui.jpeg" alt="Jean">
+            <span class="avatar-glow"></span>
+          </div>
+          <div>
+            <h3>Marvin</h3>
+            <p>Organisateur</p>
+            <p>📞 06 37 29 19 70</p>
+            <div class="contact-actions">
+              <a class="call" href="tel:0698765432">Appeler</a>
+              <a class="whatsapp" href="https://wa.me/33698765432" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="confirmation reveal">
+        <span>🌸</span>
+        <p><strong>Merci de confirmer votre présence par téléphone, SMS ou WhatsApp.</strong><br>Votre réponse nous
+          aidera à organiser cette journée parfaite pour tous.</p>
       </div>
     </section>
   </main>
@@ -152,10 +337,16 @@
     <span id="musicState">Musique</span>
   </button>
 
+  <footer>
+    <p class="japanese">ありがとう</p>
+    <p>© 2026 Laëtitia & Marvin — Tous droits réservés</p>
+  </footer>
+
   <audio id="music" preload="none" loop>
-    <source src="assets/audio/musique.mp3" type="audio/mpeg">
+    <source src="assets/audio/bambou.mp3" type="audio/mpeg">
   </audio>
 
-  <script src="script.js?v=1"></script>
+  <script src="script.js?v=2"></script>
 </body>
+
 </html>

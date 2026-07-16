@@ -1,18 +1,16 @@
-SITE DE MARIAGE — FICHIERS COMPLETS
+MISE À JOUR — SECTIONS NOTRE UNIVERS ET NOTRE RENCONTRE
 
-Le dossier contient :
-- index.html
-- styles.css
-- script.js
-- assets/images/hero-mobile.png
+Les deux nouvelles sections sont intégrées dans index.html.
+
+Pour utiliser vos propres photos, remplacez :
+- assets/images/photo-univers.svg
+- assets/images/photo-rencontre.svg
+
+Vous pouvez conserver les mêmes noms de fichiers ou modifier les chemins dans index.html.
+
+Les autres ressources déjà utilisées par votre site restent nécessaires :
 - assets/images/hero-desktop.jpg
-- assets/audio/
-
-Les pétales sont générés dynamiquement par script.js.
-L'image mobile est utilisée automatiquement sur les écrans de 768 px ou moins.
-
-Pour ajouter la musique :
-placez un fichier nommé musique.mp3 dans assets/audio/.
-
-Pour publier :
-envoyez tout le contenu du dossier sur votre dépôt GitHub Pages.
+- assets/images/hero-mobile.png
+- assets/images/elle.jpeg
+- assets/images/lui.jpeg
+- assets/audio/musique.mp3

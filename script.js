@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     revealElements.forEach((element) => element.classList.add("visible"));
   }
 
-  const weddingDate = new Date("2027-08-23T16:00:00-04:00");
+  const weddingDate = new Date("2026-08-08T16:00:00+02:00");
 
   function updateCountdown() {
     const difference = Math.max(0, weddingDate.getTime() - Date.now());
